@@ -52,7 +52,7 @@ public class User {
 	public User() {
 		super();
 	}
-	public User(String userName, String email, String password, String address) {
+	public User( String userName, String email, String password, String address) {
 		super();
 //		this.userId = userId;
 		this.userName = userName;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.foodApplication.pack.Cart" %>
+<%@ page import="com.dao.foodApplication.model.Restaurant" %>
 <%@ page import="com.dao.foodApplication.model.CartItem" %>
 <%@ page import="java.util.Map" %>
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
 </head>
 <body>
     <div class="cart-container">
-        <h1 class="cart-title">Shopping Cart</h1>
+        <h1 class="cart-title">My Cart</h1>
         <%
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null || cart.getItems().isEmpty()) {
@@ -72,7 +73,9 @@
                     <button class="clear-cart-button" type="submit">Clear Cart</button>
                 </form>
             </div>
-            <a class="continue-shopping" href="Menu.jsp">Continue Shopping</a>
+            <a href="GetMenu?restaurantId="></a>
+            <a class="continue-shopping" href="Menu.jsp">Add More Items</a>
+            <a class="continue-shopping" href="CheckOut.jsp">Check Out</a>
         <%
             }
         %>

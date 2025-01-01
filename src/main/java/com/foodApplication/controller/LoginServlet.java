@@ -1,6 +1,7 @@
 package com.foodApplication.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.dao.foodApplication.impl.UserDAOImpl;
 import com.dao.foodApplication.model.User;
@@ -40,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 	    
 	    try {
 	        User user = userDAO.getUserByEmail(email);
+	        ArrayList<User> userDetail = userDAO.fetchall();
 	        
 	        if (user != null) 
 	        {
@@ -51,6 +53,11 @@ public class LoginServlet extends HttpServlet {
 	                session.setAttribute("name", user.getUserName());
 	                session.setAttribute("email", user.getEmail());
 	                session.setAttribute("address", user.getAddress());
+	                session.setAttribute("userId",user.getUserId());
+	                System.out.println(user.getUserId());
+	                session.setAttribute("loggedUser", userDetail);
+	                System.out.println(userDetail);
+	                
 	                
 	                req.getRequestDispatcher("GetRestaurant").forward(req, resp);
 	            } 
